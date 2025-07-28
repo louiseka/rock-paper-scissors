@@ -3,6 +3,8 @@ import { useState } from "react"
 function App() {
   const options = ["Paper", "Rock", "Scissors"]
 
+  const [playerScore, setPlayerScore] = useState(0)
+  const [computerScore, setComputerScore] = useState(0)
   const [gameStart, setGameStart] = useState(false)
   const [playersChoice, setPlayersChoice] = useState("")
   const [cpuChoice, setCpuChoice] = useState("")
@@ -20,8 +22,11 @@ function App() {
       player === "Paper" && cpu === "Rock" ||
       player === "Scissors" && cpu === "Paper"
     ) {
+      setPlayerScore(playerScore + 1)
       return "You win!"
-    } return "You lose!"
+    }
+    setComputerScore(computerScore + 1)
+    return "You lose!"
   }
 
   function handleChoice(choice) {
@@ -43,8 +48,8 @@ function App() {
       <div>
         <h2>Score</h2>
         <ul>
-          <li>Your score:</li>
-          <li>Computer's score:</li>
+          <li>Your score: {playerScore}</li>
+          <li>Computer's score: {computerScore}</li>
         </ul>
       </div>
       {
