@@ -1,14 +1,32 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
   const options = ["Paper", "Rock", "Scissors"]
 
-  const [playerScore, setPlayerScore] = useState(0)
-  const [computerScore, setComputerScore] = useState(0)
+  const [playerScore, setPlayerScore] = useState(() => {
+    const savedPlayerScore = window.localStorage.getItem('saved-player-score')
+    return savedPlayerScore !== null ? JSON.parse(savedPlayerScore) : 0
+  })
+
+  const [computerScore, setComputerScore] = useState(() => {
+    const savedComputerScore = window.localStorage.getItem('saved-computer-score')
+    return savedComputerScore !== null ? JSON.parse(savedComputerScore) : 0
+  })
+
+
   const [gameStart, setGameStart] = useState(false)
   const [playersChoice, setPlayersChoice] = useState("")
   const [cpuChoice, setCpuChoice] = useState("")
   const [result, setResult] = useState("")
+
+
+  useEffect(() => {
+    window.localStorage.setItem('saved-player-score', JSON.stringify(playerScore))
+  }, [playerScore])
+
+  useEffect(() => {
+    window.localStorage.setItem('saved-computer-score', JSON.stringify(computerScore))
+  }, [computerScore])
 
   function startGame() {
     setGameStart(true)
