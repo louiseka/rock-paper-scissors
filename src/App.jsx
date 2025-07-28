@@ -31,9 +31,22 @@ function App() {
     setResult(getResult(choice, cpu))
   }
 
+  function restartGame() {
+    setPlayersChoice("")
+    setCpuChoice("")
+    setResult("")
+  }
+
   return (
     <>
       <h1>Rock Paper Scissors </h1>
+      <div>
+        <h2>Score</h2>
+        <ul>
+          <li>Your score:</li>
+          <li>Computer's score:</li>
+        </ul>
+      </div>
       {
         !gameStart &&
         <div>
@@ -50,16 +63,17 @@ function App() {
       {
         gameStart &&
         <div>
-          <div>
+          {!result && <div>
             {options.map((option) => (
               <button key={option} onClick={() => handleChoice(option)}>{option}</button>
             ))}
-          </div>
+          </div>}
           <div>
             <p>You chose: {playersChoice}</p>
             <p>Computer chose: {cpuChoice}</p>
             <p>The result: {result}</p>
           </div>
+          {result && <button onClick={() => restartGame()}>Play Again</button>}
         </div>
       }
     </>
