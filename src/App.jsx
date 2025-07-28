@@ -3,9 +3,14 @@ import { useState } from "react"
 function App() {
   const options = ["Paper", "Rock", "Scissors"]
 
+  const [gameStart, setGameStart] = useState(false)
   const [playersChoice, setPlayersChoice] = useState("")
   const [cpuChoice, setCpuChoice] = useState("")
   const [result, setResult] = useState("")
+
+  function startGame() {
+    setGameStart(true)
+  }
 
   function getResult(player, cpu) {
     if (player === cpu) {
@@ -19,7 +24,7 @@ function App() {
     } return "You lose!"
   }
 
-  function handleClick(choice) {
+  function handleChoice(choice) {
     const cpu = options[Math.floor(Math.random() * options.length)]
     setPlayersChoice(choice)
     setCpuChoice(cpu)
@@ -28,20 +33,36 @@ function App() {
 
   return (
     <>
-      <h1> Rock, Paper, and Scissors </h1>
-      <div>
-        {options.map((option) => (
-          <button key={option} onClick={() => handleClick(option)}>{option}</button>
-        ))}
-      </div>
-      <div>
-        <p>You chose: {playersChoice}</p>
-        <p>Computer chose: {cpuChoice}</p>
-        <p>The result: {result}</p>
-      </div>
+      <h1>Rock Paper Scissors </h1>
+      {
+        !gameStart &&
+        <div>
+          <p>Test your luck and strategy against the computer.</p>
+          <h2>Choices</h2>
+          <ul>
+            <li>Rock crushes Scissors</li>
+            <li>Paper covers Rock</li>
+            <li>Scissors cuts Paper</li>
+          </ul>
+          <button onClick={() => startGame()} >Start Game</button>
+        </div>
+      }
+      {
+        gameStart &&
+        <div>
+          <div>
+            {options.map((option) => (
+              <button key={option} onClick={() => handleChoice(option)}>{option}</button>
+            ))}
+          </div>
+          <div>
+            <p>You chose: {playersChoice}</p>
+            <p>Computer chose: {cpuChoice}</p>
+            <p>The result: {result}</p>
+          </div>
+        </div>
+      }
     </>
-
-
   )
 }
 
