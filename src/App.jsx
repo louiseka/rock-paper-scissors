@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react"
+import { FaHandPaper, FaHandRock, FaHandScissors } from "react-icons/fa"
 
 function App() {
-  const options = ["Paper", "Rock", "Scissors"]
+  const options = [
+    { name: "Paper", icon: FaHandPaper },
+    { name: "Rock", icon: FaHandRock },
+    { name: "Scissors", icon: FaHandScissors }
+  ]
 
   const [playerScore, setPlayerScore] = useState(() => {
     const savedPlayerScore = window.localStorage.getItem('saved-player-score')
@@ -48,7 +53,8 @@ function App() {
   }
 
   function handleChoice(choice) {
-    const cpu = options[Math.floor(Math.random() * options.length)]
+    const cpuChoice = options[Math.floor(Math.random() * options.length)]
+    const cpu = cpuChoice.name
     setPlayersChoice(choice)
     setCpuChoice(cpu)
     setResult(getResult(choice, cpu))
@@ -74,22 +80,23 @@ function App() {
       {
         !gameStart &&
         <div>
-          <button onClick={() => startGame()} >Play Game</button>
+          <button className="play-btn" onClick={() => startGame()} >Play Game</button>
         </div>
       }
       {
         gameStart &&
         <div>
-          {!result && <div>
-            {options.map((option) => (
-              <button key={option} onClick={() => handleChoice(option)}>{option}</button>
+          {!result && <div className="option-btns-section">
+            {options.map(({ name, icon: Icon }) => (
+              <button className="option-btn" key={name} onClick={() => handleChoice(name)}><Icon />{name}</button>
             ))}
           </div>}
-          <div>
-            <p>You chose: {playersChoice}</p>
-            <p>Computer chose: {cpuChoice}</p>
-            <p>The result: {result}</p>
-          </div>
+          {result &&
+            <div>
+              <p>You chose: {playersChoice}</p>
+              <p>Computer chose: {cpuChoice}</p>
+              <p>The result: {result}</p>
+            </div>}
           {result && <button onClick={() => restartGame()}>Play Again</button>}
         </div>
       }
