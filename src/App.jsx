@@ -88,7 +88,7 @@ function App() {
         <div>
           {!result && <div className="option-btns-section">
             {options.map(({ name, icon: Icon }) => (
-              <button className="option-btn" key={name} onClick={() => handleChoice(name)}><Icon />{name}</button>
+              <button className="option-btn" key={name} onClick={() => handleChoice(name)}><Icon className="icon" /><span>{name}</span></button>
             ))}
           </div>}
           {result &&

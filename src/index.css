@@ -81,12 +81,24 @@ button {
   background-color: #ffb703;
 }
 
+/* Option btns */
+
 .option-btn {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 10px solid white;
+  border: 10px solid #fb8500;
   background-color: #e7ecef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 3rem;
+  padding: 0 0 0.25em;
+  color: #023047;
 }
 
 .option-btns-section {
