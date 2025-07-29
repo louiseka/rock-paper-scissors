@@ -61,26 +61,20 @@ function App() {
   }
 
   return (
-    <>
+    <main>
       <h1>Rock Paper Scissors </h1>
-      <div>
-        <h2>Score</h2>
+      {!gameStart && <p className="tagline">Test your luck and strategy against the computer.</p>}
+      {gameStart && <div className="score-section">
         <ul>
-          <li>Your score: {playerScore}</li>
+          <li>Your score: {playerScore} </li>
+          <li>|</li>
           <li>Computer's score: {computerScore}</li>
         </ul>
-      </div>
+      </div>}
       {
         !gameStart &&
         <div>
-          <p>Test your luck and strategy against the computer.</p>
-          <h2>Choices</h2>
-          <ul>
-            <li>Rock crushes Scissors</li>
-            <li>Paper covers Rock</li>
-            <li>Scissors cuts Paper</li>
-          </ul>
-          <button onClick={() => startGame()} >Start Game</button>
+          <button onClick={() => startGame()} >Play Game</button>
         </div>
       }
       {
@@ -99,7 +93,7 @@ function App() {
           {result && <button onClick={() => restartGame()}>Play Again</button>}
         </div>
       }
-    </>
+    </main>
   )
 }
 
