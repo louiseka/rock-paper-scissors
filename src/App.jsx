@@ -106,6 +106,7 @@ function App() {
                 <ChoiceDisplay label="Computer chose:" choice={cpuChoice} />
               </div>
 
+
               <button className="play-again-btn" onClick={() => restartGame()}>Play Again</button>
             </div>}
         </div>
