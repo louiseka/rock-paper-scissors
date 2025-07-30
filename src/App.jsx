@@ -66,15 +66,22 @@ function App() {
     setResult("")
   }
 
+  const ChoiceDisplay = ({ label, choice }) => {
+    const Icon = options.find(opt => opt.name === choice)?.icon
+    return (
+      <p> <span className="md-bold-text">{label}</span><span className="indiv-choice">{Icon && <Icon className="icon" />} {choice}</span></p>
+    )
+  }
+
   return (
     <main>
       <h1>Rock Paper Scissors </h1>
       {!gameStart && <p className="tagline">Test your luck and strategy against the computer.</p>}
       {gameStart && <div className="score-section">
         <ul>
-          <li>Your score: {playerScore} </li>
-          <li>|</li>
-          <li>Computer's score: {computerScore}</li>
+          <li><span className="md-bold-text">Your score:</span> {playerScore} </li>
+          <li><span className="md-bold-text">|</span></li>
+          <li><span className="md-bold-text">Computer's score:</span> {computerScore}</li>
         </ul>
       </div>}
       {
@@ -92,12 +99,15 @@ function App() {
             ))}
           </div>}
           {result &&
-            <div>
-              <p>You chose: {playersChoice}</p>
-              <p>Computer chose: {cpuChoice}</p>
-              <p>The result: {result}</p>
+            <div className="result-section">
+              <p className="winner-section"><span className="md-bold-text">The result: </span> {result}</p>
+              <div className="choice-section">
+                <ChoiceDisplay label="You chose:" choice={playersChoice} />
+                <ChoiceDisplay label="Computer chose:" choice={cpuChoice} />
+              </div>
+
+              <button className="play-again-btn" onClick={() => restartGame()}>Play Again</button>
             </div>}
-          {result && <button onClick={() => restartGame()}>Play Again</button>}
         </div>
       }
     </main>

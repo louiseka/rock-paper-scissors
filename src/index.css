@@ -30,6 +30,10 @@ p {
   margin: 0
 }
 
+.md-bold-text {
+  font-weight: 600;
+}
+
 .tagline {
   text-align: center;
   font-size: 1.3em;
@@ -81,13 +85,20 @@ button {
   background-color: #ffb703;
 }
 
+/* Play Again btn */
+.play-again-btn {
+  margin: 1em 0 0;
+  background-color: #ffb703;
+}
+
+
 /* Option btns */
 
 .option-btn {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 10px solid #fb8500;
+  border: 10px solid #ffb703;
   background-color: #e7ecef;
   display: flex;
   flex-direction: column;
@@ -105,4 +116,41 @@ button {
   display: flex;
   justify-content: space-between;
   margin: 5em 2.5em;
+}
+
+/* Result section */
+.result-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+/* Choice section */
+
+.choice-section {
+  display: flex;
+  justify-content: center;
+  gap: 1.25em;
+  padding: 1.5em 0 1em;
+  font-size: 1.25rem;
+}
+
+.indiv-choice {
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+  border: 10px solid #ffb703;
+  background-color: #e7ecef;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner-section {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1em 0 0;
 }
