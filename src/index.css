@@ -21,7 +21,7 @@ main {
 }
 
 h1 {
-  margin: 1.5em 0 0.3em;
+  margin: 1.5em 0 0em;
   text-align: center;
   font-size: 4rem;
 }
@@ -37,7 +37,7 @@ p {
 .tagline {
   text-align: center;
   font-size: 1.3em;
-  padding: 0em 0 0;
+  padding: 1em 0 0;
 }
 
 /* Score section */
@@ -47,10 +47,13 @@ p {
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+  border-bottom: 0.5px solid #0c0908;
+  padding: 1em 0;
+  margin: 0 6em
 }
 
 .score-section>ul {
-  padding: 0.5em 0 0;
+  padding: 0;
   display: flex;
   list-style: none;
   margin: 0;
@@ -135,7 +138,7 @@ button {
   padding: 1.5em 0 1em;
   font-size: 1.4rem;
   text-align: center;
-  margin: 1em 0 0;
+  margin: 0;
 }
 
 .indiv-choice {
