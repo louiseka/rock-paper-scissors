@@ -80,7 +80,6 @@ function App() {
       {gameStart && <div className="score-section">
         <ul>
           <li><span className="md-bold-text">Your score:</span> {playerScore} </li>
-          <li><span className="md-bold-text">|</span></li>
           <li><span className="md-bold-text">Computer's score:</span> {computerScore}</li>
         </ul>
       </div>}
