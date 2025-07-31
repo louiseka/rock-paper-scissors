@@ -138,6 +138,7 @@ button {
 
 .choice-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 1.25em;
   padding: 1.5em 0 1em;
@@ -194,4 +195,9 @@ button {
     align-items: center;
     margin: 5em 2.5em;
   }
+
+  .choice-section {
+    flex-direction: row;
+  }
+
 }
