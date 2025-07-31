@@ -23,7 +23,7 @@ main {
 h1 {
   margin: 1.5em 0 0em;
   text-align: center;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 p {
@@ -36,27 +36,28 @@ p {
 
 .tagline {
   text-align: center;
-  font-size: 1.3em;
-  padding: 1em 0 0;
+  font-size: 1.15rem;
+  padding: 0.5em 0.5em 0;
 }
 
 /* Score section */
 
 .score-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.15rem;
-  border-bottom: 0.5px solid #0c0908;
+  border: none;
   padding: 1em 0;
   margin: 0 6em
 }
 
 .score-section>ul {
   padding: 0;
-  display: flex;
   list-style: none;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .score-section>ul>li {
@@ -75,9 +76,10 @@ button {
   align-items: center;
   border-radius: 10px;
   box-shadow: 0px 3px 6px #023047;
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   width: 200px;
   padding: 1em 1.5em;
+  color: #0c0908;
 }
 
 /* Play btn */
@@ -118,7 +120,10 @@ button {
 .option-btns-section {
   display: flex;
   justify-content: space-between;
-  margin: 5em 2.5em;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5em;
+  margin: 0 auto;
 }
 
 /* Result section */
@@ -161,4 +166,32 @@ button {
   text-align: center;
   font-size: 2.5rem;
   margin: 1.5em 0 1em;
+}
+
+@media (min-width: 700px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+  }
+
+  .score-section {
+    border-bottom: 0.5px solid #0c0908;
+  }
+
+  .score-section>ul {
+    flex-direction: row;
+  }
+
+  button {
+    font-size: 1.4rem;
+  }
+
+  .option-btns-section {
+    flex-direction: row;
+    align-items: center;
+    margin: 5em 2.5em;
+  }
 }
