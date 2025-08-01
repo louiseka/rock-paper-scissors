@@ -69,7 +69,7 @@ function App() {
   const ChoiceDisplay = ({ label, choice }) => {
     const Icon = options.find(opt => opt.name === choice)?.icon
     return (
-      <p> <span className="md-bold-text">{label}</span><span className="indiv-choice">{Icon && <Icon className="icon" />} {choice}</span></p>
+      <p> <span className="md-bold-text">{label}</span><span className="indiv-choice">{Icon && <Icon aria-hidden="true" focusable="false" className="icon" />} {choice}</span></p>
     )
   }
 
@@ -94,11 +94,11 @@ function App() {
         <div>
           {!result && <div className="option-btns-section">
             {options.map(({ name, icon: Icon }) => (
-              <button className="option-btn" key={name} onClick={() => handleChoice(name)}><Icon className="icon" /><span>{name}</span></button>
+              <button className="option-btn" aria-label={`Choose ${name}`} key={name} onClick={() => handleChoice(name)}><Icon aria-hidden="true" focusable="false" className="icon" /><span>{name}</span></button>
             ))}
           </div>}
           {result &&
-            <div className="result-section">
+            <div className="result-section" aria-live="polite">
               <p className="winner-section"><span className="md-bold-text">The result: </span> {result}</p>
               <button className="play-again-btn" onClick={() => restartGame()}>Play Again</button>
               <div className="choice-section">
