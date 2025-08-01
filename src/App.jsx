@@ -100,13 +100,11 @@ function App() {
           {result &&
             <div className="result-section">
               <p className="winner-section"><span className="md-bold-text">The result: </span> {result}</p>
+              <button className="play-again-btn" onClick={() => restartGame()}>Play Again</button>
               <div className="choice-section">
                 <ChoiceDisplay label="You chose:" choice={playersChoice} />
                 <ChoiceDisplay label="Computer chose:" choice={cpuChoice} />
               </div>
-
-
-              <button className="play-again-btn" onClick={() => restartGame()}>Play Again</button>
             </div>}
         </div>
       }
