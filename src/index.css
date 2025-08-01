@@ -46,7 +46,6 @@ p {
   font-size: 1.15rem;
   border: none;
   padding: 1em 0;
-  margin: 0 6em
 }
 
 .score-section>ul {
@@ -54,10 +53,10 @@ p {
   list-style: none;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-
+  font-size: 0.8em;
 }
 
 .score-section>ul>li {
@@ -181,7 +180,8 @@ button {
   }
 
   .score-section>ul {
-    flex-direction: row;
+    margin: 0 6em;
+    font-size: 1.2em;
   }
 
   button {
