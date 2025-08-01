@@ -142,7 +142,7 @@ button {
   justify-content: center;
   gap: 1.25em;
   padding: 1.5em 0 1em;
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   text-align: center;
   margin: 0;
 }
@@ -159,14 +159,12 @@ button {
   align-items: center;
   justify-content: center;
   margin: 1em 0;
-  font-size: 1.4rem;
-
 }
 
 .winner-section {
   text-align: center;
-  font-size: 2.5rem;
-  margin: 1.5em 0 1em;
+  font-size: 1.9rem;
+  margin: 1em 0 1em;
 }
 
 @media (min-width: 700px) {
@@ -198,6 +196,13 @@ button {
 
   .choice-section {
     flex-direction: row;
+    font-size: 1.4rem;
+    padding: 3.5em 0 1em;
+  }
+
+  .winner-section {
+    font-size: 2.5rem;
+    margin: 1.5em 0 1em;
   }
 
 }
